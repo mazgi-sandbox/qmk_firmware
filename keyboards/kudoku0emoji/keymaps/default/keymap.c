@@ -42,6 +42,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
+// ref. https://beta.docs.qmk.fm/using-qmk/hardware-features/displays/feature_oled_driver#usage
+#ifdef OLED_DRIVER_ENABLE
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return OLED_ROTATION_180;
+}
+
+void oled_task_user(void) {
+    oled_write_P(PSTR("kudoku/:emoji:\n"), false);
+}
+#endif
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case EMOJI_PLUS1:

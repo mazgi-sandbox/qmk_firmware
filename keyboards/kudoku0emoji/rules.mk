@@ -20,3 +20,5 @@ BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
+# ref. https://beta.docs.qmk.fm/using-qmk/hardware-features/displays/feature_oled_driver#usage
+OLED_DRIVER_ENABLE = yes
