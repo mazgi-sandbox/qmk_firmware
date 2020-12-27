@@ -15,9 +15,27 @@
  */
 #include QMK_KEYBOARD_H
 
+// ref. https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_macros
+enum custom_keycodes {
+  EMOJI_1 = SAFE_RANGE,
+  EMOJI_2
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case EMOJI_1:
+      if (record->event.pressed) {
+        // when pressed
+        SEND_STRING(":simple_smile:");
+      }
+      break;
+    case EMOJI_2:
+  }
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT( /* Base */
-    KC_A, KC_B, KC_C, KC_D \
+    COMNUM, COMPASS, KC_C, KC_D \
   )
 };
 
