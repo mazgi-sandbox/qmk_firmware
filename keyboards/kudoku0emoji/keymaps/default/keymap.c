@@ -22,35 +22,89 @@ enum layer_names {
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
-    QMKBEST = SAFE_RANGE,
-    QMKURL
+    EMOJI_PLUS1 = SAFE_RANGE,
+    EMOJI_SIMPLE_SMILE,
+    EMOJI_CLAP,
+    EMOJI_PRAY,
+    EMOJI_HEART,
+    EMOJI_SPARKLES,
+    EMOJI_SUGOI,
+    EMOJI_WWWW,
+    EMOJI_ANGER
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
-        KC_A, KC_B, KC_C,
-        KC_D, KC_E, KC_F,
-        KC_G, KC_H, KC_I
+        EMOJI_PLUS1, EMOJI_PRAY, EMOJI_SUGOI,
+        EMOJI_SIMPLE_SMILE, EMOJI_HEART, EMOJI_WWWW,
+        EMOJI_CLAP, EMOJI_SPARKLES, EMOJI_ANGER
     )
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QMKBEST:
+        case EMOJI_PLUS1:
             if (record->event.pressed) {
-                // when keycode QMKBEST is pressed
-                SEND_STRING("QMK is the best thing ever!");
+                SEND_STRING(":+1:");
             } else {
-                // when keycode QMKBEST is released
+                // do nothing
             }
             break;
-        case QMKURL:
+        case EMOJI_SIMPLE_SMILE:
             if (record->event.pressed) {
-                // when keycode QMKURL is pressed
-                SEND_STRING("https://qmk.fm/\n");
+                SEND_STRING(":simple_smile:");
             } else {
-                // when keycode QMKURL is released
+                // do nothing
+            }
+            break;
+        case EMOJI_CLAP:
+            if (record->event.pressed) {
+                SEND_STRING(":clap:");
+            } else {
+                // do nothing
+            }
+            break;
+        case EMOJI_PRAY:
+            if (record->event.pressed) {
+                SEND_STRING(":pray:");
+            } else {
+                // do nothing
+            }
+            break;
+        case EMOJI_HEART:
+            if (record->event.pressed) {
+                SEND_STRING(":heart:");
+            } else {
+                // do nothing
+            }
+            break;
+        case EMOJI_SPARKLES:
+            if (record->event.pressed) {
+                SEND_STRING(":sparkles:");
+            } else {
+                // do nothing
+            }
+            break;
+        case EMOJI_SUGOI:
+            if (record->event.pressed) {
+                SEND_STRING(":sugoi:");
+            } else {
+                // do nothing
+            }
+            break;
+        case EMOJI_WWWW:
+            if (record->event.pressed) {
+                SEND_STRING(":wwww:");
+            } else {
+                // do nothing
+            }
+            break;
+        case EMOJI_ANGER:
+            if (record->event.pressed) {
+                SEND_STRING(":anger:");
+            } else {
+                // do nothing
             }
             break;
     }
